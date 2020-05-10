@@ -3,7 +3,7 @@ const app = express();
 const PORT = 8080
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('build' ));
+app.use(express.static('build'));
 
 app.post('/test', (req, res) => {
     let testJson = {
