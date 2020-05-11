@@ -5,7 +5,7 @@ const PORT = 8080
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
-app.post('/test', (req, res) => {
+app.post('/auth', (req, res) => {
     let testJson = {
         id: req.body.id,
         name: req.body.name,
