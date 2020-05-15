@@ -6,13 +6,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 app.post('/auth', (req, res) => {
-    let testJson = {
+    let user = {
         id: req.body.id,
         name: req.body.name,
         superPower: req.body.superPower
     }
-    console.log(testJson)
-    res.json(testJson)
+    console.log(user)
+    res.json(user)
 })
 
 app.listen(PORT, ()=>{
