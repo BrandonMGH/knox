@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8080
+const PORT = 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
@@ -11,10 +11,10 @@ app.post('/auth', (req, res) => {
         name: req.body.name,
         superPower: req.body.superPower
     }
-    console.log(user)
-    res.json(user)
+    console.log(user);
+    res.json(user);
 })
 
 app.listen(PORT, ()=>{
-    console.log(`Server is running on Port ${PORT}`)
+    console.log(`Server is running on Port ${PORT}`);
 })
