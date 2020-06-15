@@ -15,6 +15,7 @@ app.post('/auth', (req, res) => {
     res.json(user);
 })
 
++
 app.listen(PORT, ()=>{
     console.log(`Server is running on Port ${PORT}`);
 })
