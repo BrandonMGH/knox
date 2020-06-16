@@ -4,7 +4,7 @@ const Main = () => {
    
     const mongoDBPost = () => {
         const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
-
+        console.log(uri)
     }
     
     return (
