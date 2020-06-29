@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const userName = process.env.KNOX_DB_USER;
 const userPassword = process.env.KNOX_DB_PASSWORD;
-const URI = `mongodb+srv://${userName}:${userPassword}@knox-f7j78.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+const URI = `mongodb+srv://${userName}:${userPassword}@knox-f7j78.mongodb.net/usersDB?retryWrites=true&w=majority`;
 
 const connectDB = async () => {
     await mongoose.connect(URI, {
