@@ -6,16 +6,17 @@ const connectDB = require('./MongoAtlas/MongoAtlasConnection.js')
 const User = require('./MongoAtlas/User.js');
 
 connectDB();
-app.use(express.json({extended: false}));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 app.post('/user', async (req, res) => {
     const {firstName, lastName} = req.body;
+    console.log(req.body.firstName)
     let user = {};
     user.firstName = firstName; 
     user.lastName = lastName;
-    console.log(user);
+    console.log("new user info:" + user);
     let userModel = new User(user);
     await userModel.save();
     res.json(userModel)
