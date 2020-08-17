@@ -3,14 +3,15 @@ const express = require('express');
 const User = require('../MongoAtlas/User.js');
 const route = express.Router();
 
+
 route.post('/addUser', async (req, res) => {
     console.log(req.body.user);
-    let user = {
-        userName: req.body.user,
-        passWord: req.body.password
+    let newUser = {
+        userName: req.body.userName,
+        passWord: req.body.passWord
     };
-    console.log("new user info:" + user);
-    let userModel = new User(user);
+    console.log("new user info:" + newUser);
+    let userModel = new User(newUser);
     await userModel.save();
     res.json(userModel)
 })

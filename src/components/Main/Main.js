@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Main = () => {
 const [user, setUser ] = useState('')
-const [password, setPassword ] = useState("")
+const [password, setPassword ] = useState('')
 
-    const postNewUser = () => {
-       let userInfo = {
-            user: user,
-            password: password
-        }
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: userInfo
-        };
-        fetch('/addUser', requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data));
+    const postNewUser = async () => {
+        console.log(user, password);
+       await axios.post('/addUser', {
+                user: user,
+                password: password
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
     }
     
     return (
