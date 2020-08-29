@@ -7,10 +7,11 @@ const [password, setPassword ] = useState('')
 
     const postNewUser = async () => {
         console.log(user, password);
-       await axios.post('/addUser', {
-                user: user,
-                password: password
-              })
+        let userInfo = {
+          user: user,
+          password: password
+        }
+       await axios.post('/addUser',userInfo)
               .then(function (response) {
                 console.log(response);
               })

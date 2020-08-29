@@ -5,19 +5,16 @@ const route = express.Router();
 
 
 route.post('/addUser', async (req, res) => {
-    console.log(req.body.user);
+    console.log(req.body.userInfo);
     let newUser = {
-        userName: req.body.userName,
-        passWord: req.body.passWord
+        userName: req.body.user,
+        passWord: req.body.password
     };
-    console.log("new user info:" + newUser);
+    console.log("new user:" + newUser['userName'], "new password:" + newUser['passWord']);
     let userModel = new User(newUser);
     await userModel.save();
     res.json(userModel)
 })
 
-route.get('/getUser', async (req, res) => {
-
-})
 
 module.exports = route;
