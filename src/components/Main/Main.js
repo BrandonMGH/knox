@@ -11,13 +11,12 @@ const [password, setPassword ] = useState('')
           user: user,
           password: password
         }
-       await axios.post('/addUser',userInfo)
-              .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
+        try{
+          let resp = await axios.post('/addUser',userInfo)
+          console.log(resp)
+        }catch(error){
+          console.log(error);
+        }
     }
     
     return (

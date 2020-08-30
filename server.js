@@ -7,8 +7,8 @@ const connectDB = require('./MongoAtlas/MongoAtlasConnection.js')
 connectDB();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('build'));
 app.use('/', require('./API/APIRoutes'));
+app.use(express.static('build'));
 
 // app.post('/user', async (req, res) => {
 //     console.log(req.body.firstName);
