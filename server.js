@@ -6,6 +6,7 @@ const connectDB = require('./MongoAtlas/MongoAtlasConnection.js')
 
 connectDB();
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', require('./API/APIRoutes'));
 app.use(express.static('build'));

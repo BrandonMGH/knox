@@ -5,7 +5,7 @@ const route = express.Router();
 
 
 route.post('/addUser', async (req, res) => {
-    console.log(req.body.userInfo);
+    console.log(req.body.user);
     let newUser = {
         userName: req.body.user,
         passWord: req.body.password
