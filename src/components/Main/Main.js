@@ -1,44 +1,17 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+
+import LoginPage from "../LoginPage/LoginPage.js";
+import Test from "../Test/Test.js"
 
 const Main = () => {
-const [user, setUser ] = useState('')
-const [password, setPassword ] = useState('')
+  return (
+    <Router>
+       <Route path="/Login" exact component={LoginPage} />
+       <Route path="/test" exact component={Test} />
+       <Route path="*" exact component={LoginPage} />
+    </Router>
+  );
+};
 
-    const postNewUser = async () => {
-        console.log(user, password);
-        let userInfo = {
-          user: user,
-          password: password
-        }
-        try{
-          let resp = await axios.post('/addUser',userInfo)
-          console.log(resp)
-        }catch(error){
-          console.log(error);
-        }
-    }
-    
-    return (
-        <>
-        <h1>Main</h1>
-        <input
-          type="text"
-          value={user}
-          onChange={e => setUser(e.target.value)}
-          placeholder="User"
-        >
-        </input>
-        <input
-          type="text"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          placeholder="User"
-        >
-        </input>
-        <button onClick={postNewUser}>MongoDB post</button>
-        </>
-    )
-}
-
-export default Main
+export default Main;
